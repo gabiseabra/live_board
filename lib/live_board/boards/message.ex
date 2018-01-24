@@ -6,7 +6,8 @@ defmodule LiveBoard.Boards.Message do
 
   schema "messages" do
     field :content, :string
-    field :user_id, :id
+
+    belongs_to :user, LiveBoard.Accounts.User
 
     timestamps()
   end

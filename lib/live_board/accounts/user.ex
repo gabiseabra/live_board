@@ -7,6 +7,8 @@ defmodule LiveBoard.Accounts.User do
   schema "users" do
     field :name, :string
 
+    has_many :messages, LiveBoard.Boards.Message
+
     timestamps()
   end
 

@@ -11,6 +11,11 @@
     "jsx-a11y",
     "import"
   ],
+	"settings": {
+		"import/resolver": {
+			"babel-module": {}
+		}
+	},
   "rules": {
     "quotes": ["error", "double", {
       "avoidEscape": true

@@ -1,6 +1,10 @@
 {
+  "name": "live_board_client",
+  "version": "0.0.0",
   "license": "MIT",
+  "private": true,
   "repository": {},
+  "author": "Gabriela Seabra <gabriela.lima.se@gmail.com>",
   "scripts": {
     "deploy": "brunch build --production",
     "watch": "brunch watch --stdin",

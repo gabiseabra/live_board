@@ -11,8 +11,9 @@ config :live_board, LiveBoardWeb.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
-                    cd: Path.expand("../assets", __DIR__)]]
+  watchers: [node: ["assets/node_modules/parcel-bundler/bin/cli.js",
+                    "watch", Path.expand("../assets/src/index.html", __DIR__),
+                    "--out-dir", Path.expand("../priv/static", __DIR__)]]
 
 # ## SSL Support
 #

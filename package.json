@@ -6,13 +6,14 @@
   "repository": {},
   "author": "Gabriela Seabra <gabriela.lima.se@gmail.com>",
   "scripts": {
-    "prebuild": "cp -R static ../priv/static",
-    "build": "parcel build src/index.html -d ../priv/static --public-url /",
-    "watch": "parcel src/index.html -d ../priv/static --public-url /",
-    "lint": "eslint ."
+    "start": "mix phx.server",
+    "prebuild": "cp -R static priv/static",
+    "build": "parcel build assets/src/index.html -d priv/static --public-url /",
+    "watch": "parcel watch assets/src/index.html -d priv/static --public-url /",
+    "lint": "eslint assets"
   },
   "dependencies": {
-    "phoenix": "file:../deps/phoenix",
+    "phoenix": "file:deps/phoenix",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },

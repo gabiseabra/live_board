@@ -6,7 +6,6 @@
   "repository": {},
   "author": "Gabriela Seabra <gabriela.lima.se@gmail.com>",
   "scripts": {
-    "start": "mix phx.server",
     "prebuild": "cp -R static priv/static",
     "build": "parcel build assets/src/index.html -d priv/static --public-url /",
     "watch": "parcel watch assets/src/index.html -d priv/static --public-url /",

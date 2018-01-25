@@ -16,8 +16,8 @@ defmodule LiveBoardWeb.Router do
   scope "/api", LiveBoardWeb do
     pipe_through :api
 
-    resources "/users", UserController, except: [:show, :edit]
-    resources "/messages", MessageController, except: [:show, :edit]
+    resources "/users", UserController, except: [:edit]
+    resources "/messages", MessageController, except: [:edit]
   end
 
   scope "/", LiveBoardWeb do

@@ -6,9 +6,10 @@
   "repository": {},
   "author": "Gabriela Seabra <gabriela.lima.se@gmail.com>",
   "scripts": {
-    "prebuild": "cp -R static priv/static",
-    "build": "parcel build assets/src/index.html -d priv/static --public-url /",
-    "watch": "parcel watch assets/src/index.html -d priv/static --public-url /",
+    "prebuild": "cp -R client/static priv/static",
+    "build": "parcel build client/index.html -d priv/static --public-url /",
+    "watch": "parcel watch client/index.html -d priv/static --public-url /",
+    "clean": "rm -rf priv/static",
     "lint": "eslint assets"
   },
   "dependencies": {

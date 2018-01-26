@@ -7,7 +7,9 @@ use Mix.Config
 
 # General application configuration
 config :live_board,
-  ecto_repos: [LiveBoard.Repo]
+  ecto_repos: [LiveBoard.Repo],
+  uploads_dir: "uploads",
+  avatar_api_url: "https://source.unsplash.com/200x200/?dog"
 
 # Configures the endpoint
 config :live_board, LiveBoardWeb.Endpoint,
@@ -28,6 +30,10 @@ config :guardian, Guardian,
   ttl: { 30, :days },
   secret_key: "8PLI+ulPagwyZZ36WBLJNgdAUgvUIzYzNMKOyQq2i0wIRXTIE5AibnVczkNNlPIs",
   serializer: LiveBoard.GuardianSerializer
+
+config :arc,
+  storage: Arc.Storage.Local,
+  storage_dir: "priv/uploads"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

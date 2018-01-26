@@ -39,7 +39,8 @@ defmodule LiveBoard.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:guardian, "~> 1.0"}
+      {:guardian, "~> 1.0"},
+      {:arc, "~> 0.8"}
     ]
   end
 

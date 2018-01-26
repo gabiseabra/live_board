@@ -1,7 +1,7 @@
 defmodule LiveBoard.Accounts.User.Avatar do
   use Arc.Definition
 
-  def api_url, do: to_charlist Application.get_env(:live_board, :avatar_api_url)
+  @api_url  to_charlist Application.get_env(:live_board, :avatar_api_url)
 
   # Include ecto support (requires package arc_ecto installed):
   # use Arc.Ecto.Definition
@@ -27,7 +27,7 @@ defmodule LiveBoard.Accounts.User.Avatar do
   # end
 
   # Override the storage directory:
-  def storage_dir(version, _) do
+  def storage_dir(_version, _) do
     "#{Application.get_env(:arc, :storage_dir)}/user"
   end
 
@@ -46,9 +46,9 @@ defmodule LiveBoard.Accounts.User.Avatar do
   # end
 
   def fetch(scope \\ nil) do
-    with {:ok, response} <- :httpc.request(:get, {api_url, []}, [], [body_format: :binary]),
+    with {:ok, response} <- :httpc.request(:get, {@api_url, []}, [], [body_format: :binary]),
          {{_, 200, 'OK'}, _headers, body} <- response do
-      store({%{binary: body, filename: random_filename}, scope})
+      store({%{binary: body, filename: random_filename()}, scope})
     else
       err -> err
     end
@@ -58,6 +58,6 @@ defmodule LiveBoard.Accounts.User.Avatar do
     :crypto.strong_rand_bytes(len)
     |> Base.url_encode64
     |> binary_part(0, len)
-    |> Kernel.<> ".jpg"
+    |> Kernel.<>(".jpg")
   end
 end

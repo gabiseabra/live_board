@@ -8,8 +8,8 @@ defmodule LiveBoardWeb.Endpoint do
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :live_board, gzip: false
-    # only: ~w(css fonts images js favicon.ico robots.txt index.html manifest.json)
+    at: "/", from: :live_board, gzip: false,
+    only: ~w(dist favicon.ico robots.txt index.html manifest.json)
 
   plug Plug.Static,
     at: "/uploads", from: Application.get_env(:arc, :storage_dir), gzip: true

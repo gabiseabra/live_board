@@ -11,7 +11,7 @@ config :live_board, LiveBoardWeb.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: [yarn: ["run", "watch"]]
+  watchers: [yarn: ["run", "build", "--watch"]]
 
 # ## SSL Support
 #

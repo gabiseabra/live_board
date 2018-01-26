@@ -20,7 +20,7 @@ defmodule LiveBoard.Mixfile do
   def application do
     [
       mod: {LiveBoard.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :guardian]
     ]
   end
 

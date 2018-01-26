@@ -5,8 +5,8 @@ defmodule LiveBoardWeb.Router do
     plug :accepts, ["json"]
   end
 
-  pipeline :api_auth
-    plug Guardia.Plug.VerifyHeader, realm: "Bearer"
+  pipeline :api_auth do
+    plug Guardian.Plug.VerifyHeader, realm: "Bearer"
     plug Guardian.Plug.LoadResource, allow_blank: true
   end
 
@@ -24,14 +24,14 @@ defmodule LiveBoardWeb.Router do
   end
 
   scope "/api", LiveBoardWeb do
-    pipe_through ~w(api api_auth)a
+    pipe_through [:api, :api_auth]
 
     resources "/users", UserController, except: [:edit]
     resources "/messages", MessageController, except: [:edit]
   end
 
   scope "/", LiveBoardWeb do
-    pipe_through ~w(browser browser_auth)a
+    pipe_through [:browser, :browser_auth]
 
     get "/*path", HomeController, :index
   end

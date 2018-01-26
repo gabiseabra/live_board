@@ -11,6 +11,9 @@ defmodule LiveBoardWeb.Endpoint do
     at: "/", from: :live_board, gzip: false
     # only: ~w(css fonts images js favicon.ico robots.txt index.html manifest.json)
 
+  plug Plug.Static,
+    at: "/uploads", from: Application.get_env(:arc, :storage_dir), gzip: true
+
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do

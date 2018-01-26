@@ -1,13 +1,10 @@
 import { observable, computed, action } from "mobx"
+import BaseStore from "./BaseStore"
 
-export default class BoardsStore {
+export default class BoardsStore extends BaseStore {
   @observable messageMap = observable.map()
 
   @computed get messages() { return this.messageMap.values() }
-
-  constructor({ apiClient }) {
-    this.api = apiClient
-  }
 
   @action async load() {
     const response = await this.api.messages.show()

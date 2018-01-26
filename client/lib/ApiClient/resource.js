@@ -1,17 +1,19 @@
 import _ from "lodash"
 
 export async function index($) {
-  return this.fetch($)
+  return this.fetch(`/${$}`)
 }
 
 export async function show($, id) {
-  return this.fetch(`${$}/${id}`)
+  return this.fetch(`/${$}/${id}`)
 }
 
 export async function create($, data) {
-  return this.fetch(`${$}`, {
+  return this.fetch(`/${$}`, {
     method: "POST",
-    contentType: "application/json",
+    headers: new Headers({
+      "Content-Type": "application/json"
+    }),
     body: JSON.stringify(data)
   })
 }

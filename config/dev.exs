@@ -11,7 +11,15 @@ config :live_board, LiveBoardWeb.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: [yarn: ["run", "build", "--watch"]]
+  watchers: [yarn: ["run", "build", "--watch"]],
+  live_reload: [
+    patterns: [
+      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
+      ~r{priv/gettext/.*(po)$},
+      ~r{lib/live_board_web/views/.*(ex)$},
+      ~r{lib/live_board_web/templates/.*(ex)$}
+    ]
+  ]
 
 # ## SSL Support
 #
